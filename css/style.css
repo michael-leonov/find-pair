@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    line-height: 1.2;
+}
+
+@font-face {
+    font-family: 'Stratos LC Web';
+    src: url('/fonts/StratosLCWeb-Light.eot');
+    src: local('Stratos LC Web Light'), local('StratosLCWeb-Light'),
+        url('/fonts/StratosLCWeb-Light.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/StratosLCWeb-Light.woff2') format('woff2'),
+        url('/fonts/StratosLCWeb-Light.woff') format('woff'),
+        url('/fonts/StratosLCWeb-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Stratos LC Web';
+    src: url('/fonts/StratosLCWeb-Bold.eot');
+    src: local('Stratos LC Web Bold'), local('StratosLCWeb-Bold'),
+        url('/fonts/StratosLCWeb-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/StratosLCWeb-Bold.woff2') format('woff2'),
+        url('/fonts/StratosLCWeb-Bold.woff') format('woff'),
+        url('/fonts/StratosLCWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Stratos LC Web';
+    src: url('/fonts/StratosLCWeb-Medium.eot');
+    src: local('Stratos LC Web Medium'), local('StratosLCWeb-Medium'),
+        url('/fonts/StratosLCWeb-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/StratosLCWeb-Medium.woff2') format('woff2'),
+        url('/fonts/StratosLCWeb-Medium.woff') format('woff'),
+        url('/fonts/StratosLCWeb-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Stratos LC Web';
+    src: url('/fonts/StratosLCWeb-Regular.eot');
+    src: local('Stratos LC Web'), local('StratosLCWeb-Regular'),
+        url('/fonts/StratosLCWeb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/StratosLCWeb-Regular.woff2') format('woff2'),
+        url('/fonts/StratosLCWeb-Regular.woff') format('woff'),
+        url('/fonts/StratosLCWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body {
+    background-color:#004980;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Stratos LC Web';
+    font-weight: 400;
+}
+
+.container {
+    width: 480px;
+    margin: 0 auto;
+}
+
+.complexity__inner {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-color: #C2F5FF;
+    padding: 50px 69px;
+    border-radius: 12px;
+}
+
+.complexity__title {
+    color: #004980;
+    font-size: 40px;
+    text-align: center;
+    width: 208px;
+    margin-bottom: 48px;
+    font-weight: 400;
+}
+
+.complexity__types-wrapper {
+    display: flex;
+    column-gap: 24px;
+    margin-bottom: 67px;
+}
+
+.complexity__type {
+    background-color:white;
+    width: 98px;
+    height: 98px;
+    border-radius:12px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.complexity__type span {
+    font-size: 64px;
+    color:#0080C1;
+}
+
+.start-btn {
+    width: 246px;
+    height: 50px;
+    background-color: #7AC100;
+    color:white;
+    font-size: 24px;
+    border:none;
+    border-radius: 12px;
+}
+
+
+
+
