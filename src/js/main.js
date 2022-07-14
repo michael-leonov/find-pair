@@ -4,20 +4,24 @@ const statusComplexity = {
 
 const complexityTypes = document.querySelectorAll('.complexity__type');
 
-complexityTypes.forEach((e) =>
-  e.addEventListener('click', () => {
-    complexityTypes.forEach((el) => {
-      el.classList.remove('choosen');
-    });
-    e.classList.toggle('choosen');
-    if (e.classList.contains('choosen')) {
-      statusComplexity.status =
-        Array.from(complexityTypes).findIndex((i) => i === e) + 1;
-    } else {
-      delete statusComplexity.status;
-    }
-  })
-);
+function chooseComplexity(types) {
+  types.forEach((element) =>
+    element.addEventListener('click', () => {
+      types.forEach((element) => {
+        element.classList.remove('choosen');
+      });
+      element.classList.toggle('choosen');
+      if (element.classList.contains('choosen')) {
+        statusComplexity.status =
+          Array.from(complexityTypes).findIndex((i) => i === element) + 1;
+      } else {
+        delete statusComplexity.status;
+      }
+    })
+  );
+}
+
+chooseComplexity(complexityTypes);
 
 const startBtn = document.querySelector('.start-btn');
 
