@@ -2,7 +2,12 @@ const statusComplexity = {
   status: 0,
 };
 
-const complexityTypes = document.querySelectorAll('.complexity__type');
+const complexityTypes = [].map.call(
+  document.querySelectorAll('[data-complexity]'),
+  (el) => {
+    return el;
+  }
+);
 
 function chooseComplexity(types) {
   types.forEach((element) =>
@@ -13,7 +18,7 @@ function chooseComplexity(types) {
       element.classList.toggle('choosen');
       if (element.classList.contains('choosen')) {
         statusComplexity.status =
-          Array.from(complexityTypes).findIndex((i) => i === element) + 1;
+          Array.from(types).findIndex((i) => i === element) + 1;
       } else {
         delete statusComplexity.status;
       }
