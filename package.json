@@ -1,0 +1,35 @@
+{
+  "name": "find-pair",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
+    "lint:js": "eslint './src/**/*.js'",
+    "lint:css": "stylelint './src/**/*.css'",
+    "lint": "npm run lint:css && npm run lint:js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-leonov/find-pair.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michael-leonov/find-pair/issues"
+  },
+  "homepage": "https://github.com/michael-leonov/find-pair#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^26.0.0",
+    "stylelint-prettier": "^2.0.0"
+  }
+}

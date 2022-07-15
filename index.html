@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+
     <title>Сложность</title>
-</head>
-<body>
+  </head>
+  <body>
     <section class="complexity">
-        <div class="container">
-            <div class="complexity__inner">
-                <h1 class="complexity__title">Выбери сложность</h1>
-                <div class="complexity__types-wrapper">
-                    <div class="complexity__type"><span>1</span></div>
-                    <div class="complexity__type"><span>2</span></div>
-                    <div class="complexity__type"><span>3</span></div>
-                </div>
-                <button class="all-btn start-btn">Старт</button>
-            </div>
+      <div class="container">
+        <div class="complexity__inner">
+          <h1 class="complexity__title">Выбери сложность</h1>
+          <div class="complexity__types-wrapper">
+            <div data-complexity="1" class="complexity__type"><span>1</span></div>
+            <div data-complexity="2" class="complexity__type"><span>2</span></div>
+            <div data-complexity="3" class="complexity__type"><span>3</span></div>
+          </div>
+          <button class="all-btn start-btn">Старт</button>
         </div>
+      </div>
     </section>
-    <script src="./js/http-request.js"></script>
-    <script src="./js/main.js"></script>
-</body>
+    <script src="./src/js/http-request.js"></script>
+    <script src="./src/js/main.js"></script>
+  </body>
 </html>
