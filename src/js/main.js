@@ -41,7 +41,7 @@ startBtn.addEventListener('click', (event) => {
       url: '/field.html',
       type: 'text',
       onSuccess: (data) => {
-        document.querySelector('body').innerHTML = data;
+        document.body.innerHTML = data;
       },
     });
   }
