@@ -48,10 +48,6 @@ module.exports = {
       filename: 'field.html',
       template: './src/field.html',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'open-field.html',
-      template: './src/open-field.html',
-    }),
     new MiniCssExtractPlugin(),
   ],
 };
