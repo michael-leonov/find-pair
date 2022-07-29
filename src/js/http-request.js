@@ -1,8 +1,7 @@
 const noop = () => {};
-function httpRequest({
+export function httpRequest({
   method = 'GET',
   url,
-  body,
   type = 'json',
   onSuccess = noop,
   onError = noop,
@@ -12,7 +11,7 @@ function httpRequest({
   request.open(method, url);
   request.responseType = type;
 
-  request.send(body);
+  request.send();
 
   request.addEventListener('load', () => {
     if (request.status === 200) {
