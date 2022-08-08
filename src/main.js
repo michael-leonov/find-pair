@@ -1,4 +1,10 @@
-const statusComplexity = {
+import './css/style.css';
+import httpRequest from './js/http-request';
+import { generateCards } from './js/generate-cards';
+import { gameLogic } from './js/game-logic';
+import restart from './js/restart';
+
+window.statusComplexity = {
   status: 0,
 };
 
@@ -9,6 +15,8 @@ const complexityTypes = [].map.call(
   }
 );
 
+const startBtn = document.querySelector('.start-btn');
+
 function chooseComplexity(types) {
   types.forEach((element) =>
     element.addEventListener('click', () => {
@@ -17,10 +25,10 @@ function chooseComplexity(types) {
       });
       element.classList.toggle('choosen');
       if (element.classList.contains('choosen')) {
-        statusComplexity.status =
-          Array.from(types).findIndex((i) => i === element) + 1;
+        window.statusComplexity.status = Number(element.dataset.complexity);
+        startBtn.disabled = false;
       } else {
-        delete statusComplexity.status;
+        delete window.statusComplexity.status;
       }
     })
   );
@@ -28,20 +36,22 @@ function chooseComplexity(types) {
 
 chooseComplexity(complexityTypes);
 
-const startBtn = document.querySelector('.start-btn');
-
 startBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  if (statusComplexity.status === 0) {
-    this.disabled = true;
+  if (window.statusComplexity.status === 0) {
     document.querySelector('.complexity__inner').append('Сложность не выбрана');
+    event.target.disabled = true;
   } else {
-    // eslint-disable-next-line no-undef
     httpRequest({
-      url: '/field.html',
+      url: './field.html',
       type: 'text',
       onSuccess: (data) => {
-        document.body.innerHTML = data;
+        document.documentElement.innerHTML = data;
+
+        generateCards();
+        gameLogic();
+
+        restart();
       },
     });
   }
