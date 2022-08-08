@@ -13,9 +13,6 @@
   "rules": {
     "prettier/prettier": "error",
     "camelcase": ["error"],
-    "eqeqeq": ["error", "always"],
-    "no-unused-vars": ["error", {
-      "varsIgnorePattern": "httpRequest"
-    }]
+    "eqeqeq": ["error", "always"]
   }
 }

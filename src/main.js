@@ -1,7 +1,8 @@
 import './css/style.css';
-import { httpRequest } from './js/http-request.js';
+import httpRequest from './js/http-request';
 import { generateCards } from './js/generate-cards';
 import { gameLogic } from './js/game-logic';
+import restart from './js/restart';
 
 window.statusComplexity = {
   status: 0,
@@ -27,7 +28,7 @@ function chooseComplexity(types) {
         window.statusComplexity.status = Number(element.dataset.complexity);
         startBtn.disabled = false;
       } else {
-        delete window.tatusComplexity.status;
+        delete window.statusComplexity.status;
       }
     })
   );
@@ -41,15 +42,16 @@ startBtn.addEventListener('click', (event) => {
     document.querySelector('.complexity__inner').append('Сложность не выбрана');
     event.target.disabled = true;
   } else {
-    // eslint-disable-next-line no-undef
     httpRequest({
       url: './field.html',
       type: 'text',
       onSuccess: (data) => {
-        document.body.innerHTML = data;
+        document.documentElement.innerHTML = data;
 
         generateCards();
         gameLogic();
+
+        restart();
       },
     });
   }

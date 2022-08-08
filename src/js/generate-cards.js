@@ -1,3 +1,5 @@
+export const countCards = 3;
+
 export function generateCards() {
   const fieldCards = document.querySelector('.field__main');
   const cardPrefixSpades = '../static/spades_img/';
@@ -15,7 +17,7 @@ export function generateCards() {
     six: `${cardPrefixSpades}six${cardPostfixSpades}`,
   };
 
-  for (let i = 0; i < 3 * window.statusComplexity.status; i++) {
+  for (let i = 0; i < countCards * window.statusComplexity.status; i++) {
     for (let j = 0; j < 2; j++) {
       const cardWrapper = document.createElement('div');
       cardWrapper.classList.add('card-wrapper');

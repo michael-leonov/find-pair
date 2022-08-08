@@ -1,5 +1,5 @@
 const noop = () => {};
-export function httpRequest({
+export default function httpRequest({
   method = 'GET',
   url,
   type = 'json',

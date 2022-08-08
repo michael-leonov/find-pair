@@ -27,6 +27,13 @@ module.exports = {
       { test: /\.(js)$/, use: 'babel-loader' },
     ],
   },
+
+  // devServer: {
+  //   static: {
+  //     directory: path.join(__dirname, 'src'),
+  //   },
+  // },
+
   optimization: {
     minimizer: ['...', new CssMinimizerPlugin()],
   },
