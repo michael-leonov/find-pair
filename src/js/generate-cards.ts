@@ -1,6 +1,6 @@
-export const countCards = 3;
+export const countCards: 3 = 3;
 
-export function generateCards() {
+export function generateCards(): void {
   const fieldCards = document.querySelector('.field__main');
   const cardPrefixSpades = '../static/spades_img/';
   const cardPostfixSpades = '_spades.jpg';
@@ -35,7 +35,7 @@ export function generateCards() {
 
       cardWrapper.appendChild(backCardImg);
 
-      fieldCards.appendChild(cardWrapper);
+      fieldCards!.appendChild(cardWrapper);
     }
   }
 }
