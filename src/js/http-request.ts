@@ -4,8 +4,8 @@ interface Request {
   method: string;
   url: string;
   type: XMLHttpRequestResponseType;
-  onSuccess: (data: any) => void;
-  onError: (data: any) => void;
+  onSuccess: (data: string) => void;
+  onError: (data: string) => void;
 }
 
 export default function httpRequest({

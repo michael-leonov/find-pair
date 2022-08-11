@@ -4,11 +4,11 @@ import { stopwatch, stop } from './stopwatch';
 let hasFlippedCard: boolean = false;
 let lockBoard: boolean = false;
 let firstCard: {
-    dataset: { rang: any };
+    dataset: { rang: string };
     removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
   },
   secondCard: {
-    dataset: { rang: any };
+    dataset: { rang: string };
     removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
   };
 
@@ -24,7 +24,11 @@ export function gameLogic(): void {
   cards.forEach((card) => card.addEventListener('click', flipCard));
 }
 
-function flipCard(this: any): void {
+function flipCard(this: {
+  classList: DOMTokenList;
+  dataset: { rang: string };
+  removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
+}): void {
   const cards: NodeListOf<Element> = document.querySelectorAll('.card-wrapper');
   if (lockBoard) return;
 
@@ -98,8 +102,8 @@ function statusGame(imgUrl: string, status: string | null): void {
 function resetBoard(): void {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [
-    { dataset: { rang: null }, removeEventListener(arg0, arg1) {} },
-    { dataset: { rang: null }, removeEventListener(arg0, arg1) {} },
+    { dataset: { rang: '' }, removeEventListener() {} },
+    { dataset: { rang: '' }, removeEventListener() {} },
   ];
 }
 

@@ -1,4 +1,4 @@
-export const countCards: 3 = 3;
+export const countCards: number = 3;
 
 export function generateCards(): void {
   const fieldCards = document.querySelector('.field__main');

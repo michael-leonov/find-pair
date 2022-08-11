@@ -6,7 +6,7 @@ import restart from './js/restart';
 
 declare global {
   interface Window {
-    statusComplexity?: any;
+    statusComplexity: { status: number };
   }
 }
 
@@ -25,15 +25,19 @@ export default function startGame(): void {
   const startBtn: HTMLButtonElement | null =
     document.querySelector('.start-btn');
 
+  interface Del {
+    status?: number;
+  }
+
   (function chooseComplexity(types: any[]) {
     types.forEach(
       (element: {
         addEventListener: (arg0: string, arg1: () => void) => any;
         classList: {
           toggle: (arg0: string) => void;
-          contains: (arg0: string) => any;
+          contains: (arg0: string) => string;
         };
-        dataset: { complexity: any };
+        dataset: { complexity: string };
       }) =>
         element.addEventListener('click', () => {
           types.forEach(
@@ -46,7 +50,9 @@ export default function startGame(): void {
             window.statusComplexity.status = Number(element.dataset.complexity);
             startBtn!.disabled = false;
           } else {
-            delete window.statusComplexity.status;
+            (function delComplexity(complexity: Del): void {
+              delete complexity.status;
+            })(window.statusComplexity);
           }
         })
     );
