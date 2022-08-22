@@ -65,6 +65,7 @@ function flipCard(this: {
   );
   if (winGame) {
     statusGame('/static/win-game.png', 'Вы выйграли');
+    resetBoard();
   }
 }
 
@@ -81,7 +82,7 @@ function allFlip(): Promise<void> {
         (el as HTMLElement).style.pointerEvents = 'auto';
 
         resolve();
-      }, 1000);
+      }, 5000);
     });
   });
 }
