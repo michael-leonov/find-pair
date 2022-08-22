@@ -1,5 +1,5 @@
 let time: number = 0;
-let runtime: boolean = true;
+let runtime: boolean;
 
 export function stopwatch(): void {
   if (runtime) {
@@ -24,6 +24,11 @@ export function stopwatch(): void {
   }
 }
 
-export function stop(): void {
+export function stopTime(): void {
   runtime = false;
+}
+
+export function startTime(): void {
+  runtime = true;
+  time = 0;
 }

@@ -3,6 +3,7 @@ import httpRequest from './js/http-request';
 import { generateCards } from './js/generate-cards';
 import { gameLogic } from './js/game-logic';
 import restart from './js/restart';
+import { startTime } from './js/stopwatch';
 
 declare global {
   interface Window {
@@ -59,7 +60,6 @@ export default function startGame(): void {
   })(complexityTypes);
 
   startBtn!.addEventListener('click', (event) => {
-    event.preventDefault();
     if (window.statusComplexity.status === 0) {
       document
         .querySelector('.complexity__inner')!
@@ -75,6 +75,7 @@ export default function startGame(): void {
 
           generateCards();
           gameLogic();
+          startTime();
 
           restart();
         },

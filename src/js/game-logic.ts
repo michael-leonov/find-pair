@@ -1,5 +1,5 @@
 import { countCards } from './generate-cards';
-import { stopwatch, stop } from './stopwatch';
+import { stopwatch, stopTime } from './stopwatch';
 
 let hasFlippedCard: boolean = false;
 let lockBoard: boolean = false;
@@ -81,7 +81,7 @@ function allFlip(): Promise<void> {
         (el as HTMLElement).style.pointerEvents = 'auto';
 
         resolve();
-      }, 5000);
+      }, 1000);
     });
   });
 }
@@ -89,7 +89,7 @@ function allFlip(): Promise<void> {
 function checkForMatch(): void {
   firstCard.dataset.rang === secondCard.dataset.rang
     ? disableCards()
-    : statusGame('/static/lose-game.png', 'Вы проиграли!');
+    : (statusGame('/static/lose-game.png', 'Вы проиграли!'), resetBoard());
 }
 
 function disableCards(): void {
@@ -105,7 +105,7 @@ function statusGame(imgUrl: string, status: string | null): void {
   const imgStatus = document.querySelector('.status-game__img');
   const overlay = document.querySelector('.bg-overlay');
 
-  stop();
+  stopTime();
 
   (imgStatus as HTMLImageElement).src = imgUrl;
   textStatus!.textContent = status;
