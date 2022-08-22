@@ -29,16 +29,16 @@ export default function startGame(): void {
     status?: number;
   }
 
-  (function chooseComplexity(types: any[]) {
+  (function chooseComplexity(types: any[]): void {
     types.forEach(
       (element: {
-        addEventListener: (arg0: string, arg1: () => void) => any;
+        addEventListener: (arg0: string, arg1: () => void) => void;
         classList: {
           toggle: (arg0: string) => void;
           contains: (arg0: string) => string;
         };
         dataset: { complexity: string };
-      }) =>
+      }): void =>
         element.addEventListener('click', () => {
           types.forEach(
             (element: { classList: { remove: (arg0: string) => void } }) => {
@@ -50,7 +50,7 @@ export default function startGame(): void {
             window.statusComplexity.status = Number(element.dataset.complexity);
             startBtn!.disabled = false;
           } else {
-            (function delComplexity(complexity: Del): void {
+            ((complexity: Del): void => {
               delete complexity.status;
             })(window.statusComplexity);
           }

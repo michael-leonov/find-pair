@@ -5,11 +5,25 @@ let hasFlippedCard: boolean = false;
 let lockBoard: boolean = false;
 let firstCard: {
     dataset: { rang: string };
-    removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
+    removeEventListener: (
+      arg0: string,
+      arg1: (this: {
+        classList: DOMTokenList;
+        dataset: { rang: string };
+        removeEventListener: (arg0: string, arg1: () => void) => void;
+      }) => void
+    ) => void;
   },
   secondCard: {
     dataset: { rang: string };
-    removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
+    removeEventListener: (
+      arg0: string,
+      arg1: (this: {
+        classList: DOMTokenList;
+        dataset: { rang: string };
+        removeEventListener: (arg0: string, arg1: () => void) => void;
+      }) => void
+    ) => void;
   };
 
 export function gameLogic(): void {
@@ -27,7 +41,7 @@ export function gameLogic(): void {
 function flipCard(this: {
   classList: DOMTokenList;
   dataset: { rang: string };
-  removeEventListener: (arg0: string, arg1: (this: any) => void) => void;
+  removeEventListener: (arg0: string, arg1: () => void) => void;
 }): void {
   const cards: NodeListOf<Element> = document.querySelectorAll('.card-wrapper');
   if (lockBoard) return;
