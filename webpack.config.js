@@ -8,10 +8,15 @@ const mode =
   process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/main.ts',
   mode,
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -33,6 +38,10 @@ module.exports = {
   //     directory: path.join(__dirname, 'src'),
   //   },
   // },
+
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
 
   optimization: {
     minimizer: ['...', new CssMinimizerPlugin()],

@@ -1,7 +1,7 @@
-let time = 0;
-let runtime = true;
+let time: number = 0;
+let runtime: boolean;
 
-export function stopwatch() {
+export function stopwatch(): void {
   if (runtime) {
     setTimeout(function () {
       time++;
@@ -10,10 +10,11 @@ export function stopwatch() {
       let secs = Math.floor((time / 10) % 60);
 
       if (mins < 10) {
-        mins = '0' + mins;
+        // Тут надо придумать с нулями ('0' + mins)
+        mins = mins;
       }
       if (secs < 10) {
-        secs = '0' + secs;
+        secs = secs;
       }
       stopwatchCount.forEach((el) => {
         el.innerHTML = mins + '.' + secs;
@@ -23,6 +24,11 @@ export function stopwatch() {
   }
 }
 
-export function stop() {
+export function stopTime(): void {
   runtime = false;
+}
+
+export function startTime(): void {
+  runtime = true;
+  time = 0;
 }

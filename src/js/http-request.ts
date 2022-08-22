@@ -1,11 +1,20 @@
-const noop = () => {};
+const noop: () => void = () => {};
+
+interface Request {
+  method: string;
+  url: string;
+  type: XMLHttpRequestResponseType;
+  onSuccess: (data: string) => void;
+  onError: (data: string) => void;
+}
+
 export default function httpRequest({
   method = 'GET',
   url,
   type = 'json',
   onSuccess = noop,
   onError = noop,
-}) {
+}: Request): void {
   const request = new XMLHttpRequest();
 
   request.open(method, url);
